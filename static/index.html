@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Straight Times</title>
+  <style>
+    .container {
+      width: 100%;
+      height: 100%;
+      font-family: Helvetica, sans-serif;
+    }
+
+    .main {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #urlinput {
+      padding: 10px;
+      width: 100%;
+    }
+
+    #viewbutton {
+      margin-top: 20px;
+      padding: 10px 40px 10px 40px;
+    }
+
+    #error {
+      margin-top: 20px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main">
+      <h1>Straight Times</h1>
+      <input type="text"
+        placeholder="https://www.straitstimes.com/business/economy/trumps-new-tariffs-could-ruin-christmas-for-us-shoppers"
+        id="urlinput" />
+      <div id="error"></div>
+      <button type="button" id="viewbutton">VIEW</button>
+    </div>
+  </div>
+
+  <script>
+    submitData = () => {
+      window.location.href = `/api/url?url=${document.getElementById('urlinput').value}`
+    }
+
+    document.getElementById("viewbutton").onclick = () => submitData()
+
+    document.getElementById("urlinput").addEventListener("keyup", (e) => {
+      e.preventDefault();
+      if (event.keyCode === 13) {
+        submitData()
+      }
+    })
+  </script>
+</body>
+
+</html>
