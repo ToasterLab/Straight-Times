@@ -11,3 +11,12 @@ Direct access to Straits Times premium articles with your own credentials
 returns HTML content of article
 ```
 
+## Running
+
+```
+$ go build main.go && ./main
+
+```
+
+Or use docker
+
